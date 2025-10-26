@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC P2P Chat (IPv6)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>WebRTC P2P Chat (Manual Signaling)</h1>
+    <p>This works best if both peers are on a modern IPv6 network.</p>
+    
+    <div class="container">
+        <div class="box">
+            <h2>Peer 1 (Start Here)</h2>
+            <button id="createOfferBtn">1. Create Offer</button>
+            <p>Send this offer to Peer 2:</p>
+            <textarea id="offerSdp" readonly></textarea>
+            <p>Paste Peer 2's answer below:</p>
+            <textarea id="answerSdpIn"></textarea>
+            <button id="startSessionBtn">3. Start Session</button>
+        </div>
+
+        <div class="box">
+            <h2>Peer 2 (Receiver)</h2>
+            <p>Paste Peer 1's offer below:</p>
+            <textarea id="offerSdpIn"></textarea>
+            <button id="createAnswerBtn">2. Create Answer</button>
+            <p>Send this answer back to Peer 1:</p>
+            <textarea id="answerSdp" readonly></textarea>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <h2>Chat</h2>
+        <div id="chatBox">
+            <div class="message system">Waiting for connection...</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type your message..." disabled>
+            <button id="sendBtn" disabled>Send</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
